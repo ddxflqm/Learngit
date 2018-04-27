@@ -1,0 +1,5 @@
+hello  wolcome Git
+mkdir  创建目录 
+pwd 显示当前目录
+git init 把目录编程Git可以管理的仓库 ，会生成.git目录 目录会隐藏 ，用 ls -ah 命令就可以看见了 
+ 
