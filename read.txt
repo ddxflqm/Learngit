@@ -1,21 +1,35 @@
 ﻿hello  wolcome Git
+
 mkdir  创建目录 
+
 pwd 显示当前目录
+
 git init 把目录编程Git可以管理的仓库 ，会生成.git目录 目录会隐藏 ，用 ls -ah 命令就可以看见了 
 
 git add read.txt  把文件添加到仓库 
+
 git commit -m   把文件提交到仓库  -m 后边“”是注释提交内容 
 
-总结：
-添加文件到Git仓库，分两步：
-
-第一步，使用命令git add <file>，注意，可反复多次使用，添加多个文件；
-
-第二步，使用命令git commit，完成。
 
 git diff 查看修改的内容
 
 git status 查看仓库当前状态
+
+cat read.txt 查看文件内容
+
+
+git log 查看提交日志 从近到远显示 
+
+git log --pretty=oneline
+
+
+git reset --hard HEAD^ 回退到上一个版本 上上个版本用 HEAD^^  往上100个版本可以写成HEAD~100
+
+git reset --hard 3628547 回退之后再返回来  可以依据commit id （你记得commit id）
+
+如果不记得commit id 该怎么恢复？
+
+git reflog 查看命令历史 来查找未来的版本ID 
 
  
  
