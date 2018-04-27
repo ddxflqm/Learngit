@@ -1,5 +1,16 @@
-hello  wolcome Git
-mkdir  ����Ŀ¼ 
-pwd ��ʾ��ǰĿ¼
-git init ��Ŀ¼���Git���Թ����Ĳֿ� ��������.gitĿ¼ Ŀ¼������ ���� ls -ah ����Ϳ��Կ����� 
+﻿hello  wolcome Git
+mkdir  创建目录 
+pwd 显示当前目录
+git init 把目录编程Git可以管理的仓库 ，会生成.git目录 目录会隐藏 ，用 ls -ah 命令就可以看见了 
+
+git add read.txt  把文件添加到仓库 
+git commit -m   把文件提交到仓库  -m 后边“”是注释提交内容 
+
+总结：
+添加文件到Git仓库，分两步：
+
+第一步，使用命令git add <file>，注意，可反复多次使用，添加多个文件；
+
+第二步，使用命令git commit，完成。
+ 
  
