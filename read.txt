@@ -31,5 +31,82 @@ git reset --hard 3628547 回退之后再返回来  可以依据commit id （你�
 
 git reflog 查看命令历史 来查找未来的版本ID 
 
+
+创建远程库 
+1，查看主目录下有没有.ssh  (C:\Users\vn0umhp\.ssh)
+2, 如果没有.ssh文件 要执行下边命令创建SSH Key：
+ssh-keygen -t rsa -C "youremail@example.com" 邮件地址是你自己的github地址 
+执行之后，C:\Users\vn0umhp\.ssh下边存在id_rsa和id_rsa.pub两个文件，
+id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥
+
+3，主目录下.ssh中存在id_rsa和id_rsa.pub两个文件之后，
+登陆GitHub，打开“Account settings”，“SSH Keys”页面，
+点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。
+点“Add Key”，你就应该看到已经添加的Key。
+
+在GitHub中创建仓库
+1，登录GitHub，点击 New repository创建一个仓库；
+2，在Repository name中填入仓库名；
+3，点击“Create repository”按钮，就成功地创建了一个新的Git仓库。
+
+在GitHub上的这个learngit仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。
+
+把本地库推送到GitHub仓库中：
+1，关联远程库，在本地仓库E:\learngit中运行命令：
+$ git remote add origin git@github.com:michaelliao/learngit.git
+michaelliao替换成自己的GitHub账户名，origin就是远程库的名字。
+
+2，把本地库的所有内容推送到远程库中:
+$ git push -u origin master
+
+我执行命令的时候报错：
+vn0umhp@WDWSPC093 MINGW64 /e/learngit (master)
+$ git push -u origin master
+ssh: connect to host github.com port 22: Connection refused
+fatal: Could not read from remote repository.
+
+原因是 主目录下的.ssh中缺少config文件；
+解决方案： 
+1）进入到主目录，创建一个config文件，因为无法cd 到.ssh目录，我直接在用户名目录下创建了一个config文件，创建之后再拷贝到.ssh目录下。
+创建config文件用touch config命令。
+vn0umhp@WDWSPC093 MINGW64 /e/learngit (master)
+$ cd C:
+
+vn0umhp@WDWSPC093 MINGW64 /c
+$ cd Users
+
+vn0umhp@WDWSPC093 MINGW64 /c/Users
+$ cd vn0umhp
+
+vn0umhp@WDWSPC093 MINGW64 ~
+$ touch config
+
+2）在confing中编辑如下内容：
+Host github.com  
+User xxxxx@xx.com  
+Hostname ssh.github.com  
+PreferredAuthentications publickey  
+IdentityFile ~/.ssh/id_rsa  
+Port 443
+
+xxxxx@xx.com 是你注册github的邮箱
+编辑保存之后，重新执行推送一下就成功了。
+
+
+SSH警告：
+当你第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告：
+The authenticity of host 'github.com (xx.xx.xx.xx)' can't be established.
+RSA key fingerprint is xx.xx.xx.xx.xx.
+Are you sure you want to continue connecting (yes/no)?
+这是因为Git使用SSH连接，而SSH连接在第一次验证GitHub服务器的Key时，需要你确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，输入yes回车即可。
+
+Git会输出一个警告，告诉你已经把GitHub的Key添加到本机的一个信任列表里了：
+
+Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+这个警告只会出现一次，后面的操作就不会有任何警告了。
+
+
+
+
  
  
