@@ -1,4 +1,4 @@
-﻿hello  wolcome Git
+hello  wolcome Git
 
 mkdir  创建目录 
 
@@ -156,6 +156,12 @@ Your branch is up to date with 'origin/master'.
 nothing to commit, working tree clean
 
 ------------------------------------------------------------------------------
+mac 
+mac自带Git，不用安装。
+which  git  可以直接找出Git的安装目录 
+直接使用命令关联远程仓库 
+ssh-keygen -t rsa -C "youremail@example.com" 邮件地址是你自己的github地址
+把生成的SSH公钥写进GitHub（与windows方法一致）
 
 
 
