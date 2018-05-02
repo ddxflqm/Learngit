@@ -4,7 +4,7 @@ mkdir  创建目录
 
 pwd 显示当前目录
 
-git init 把目录编程Git可以管理的仓库 ，会生成.git目录 目录会隐藏 ，用 ls -ah 命令就可以看见了 
+git init 把目录编程G it可以管理的仓库 ，会生成.git目录 目录会隐藏 ，用 ls -ah 命令就可以看见了 
 
 git add read.txt  把文件添加到仓库 
 
@@ -47,7 +47,16 @@ git reset HEAD file  	 场景2：当你不但改乱了工作区某个文件的�
 
 git reset --hard HEAD^	 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，直接版本回退，不过前提是没有推送到远程库。
 
+git rm test.txt  删除一个文件。
 
+
+git checkout -b dev   创建dev分支并切换到dev分支 。
+
+git branch dev   创建dev分支。
+
+git checkout dev  切换到dev分支。
+
+git branch  列出所有分支，当前分支前边会标有*号。
 ---------------------------------------------------------------------------------------
 创建远程库 
 1，查看主目录下有没有.ssh  (C:\Users\vn0umhp\.ssh)
