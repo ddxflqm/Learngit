@@ -1,4 +1,4 @@
-hello  wolcome Git
+﻿hello  wolcome Git
 
 mkdir  创建目录 
 
@@ -163,8 +163,27 @@ which  git  可以直接找出Git的安装目录
 ssh-keygen -t rsa -C "youremail@example.com" 邮件地址是你自己的github地址
 把生成的SSH公钥写进GitHub（与windows方法一致）
 
+------------------------------------------------------------------------------
+git pull origin master 
+git 在pull或者合并分支的时候有时会遇到这个界面,意思是需要你 输入提交消息来解释为什么这种合并是必要的
 
+窗口内容：
+please enter a commit message to explain why this merge is necessary,
+especially if it merges an updated upstream into a topic branch.
 
+Lines starting with '#' will be ignored, and an empty message aborts the commit.
 
+两种解决方案： 
+第一：
+
+1.按键盘字母 i 进入insert模式
+
+2.修改最上面那行黄色合并信息
+第二：
+1.按键盘左上角"Esc"
+
+2.输入冒号加wq   ":wq",  按回车键，意思就是就是忽略这个提示
+
+--------------------------------------------------------------------------------
  
  
