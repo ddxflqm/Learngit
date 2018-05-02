@@ -65,9 +65,17 @@ git merge dev 合并指定分支到当前分支。要合并的指定分支是dev
 git branch -d dev  删除Dev分支。
 
 
-两个分支都有修改并提交，合并时会导致冲突。
-有修改 但是没有提交
 
+-------------------------------------------------------------------------------------
+
+两个分支都有修改并提交，合并时会导致冲突。
+冲突提示：
+$ git merge dev
+Auto-merging read.txt
+CONFLICT (content): Merge conflict in read.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+CONFLICT 冲突
 
 ---------------------------------------------------------------------------------------
 创建远程库 
