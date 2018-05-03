@@ -77,7 +77,15 @@ git log --graph --pretty=oneline --abbrev-commit 查看分支合并情况，包�
 比较 git merge 与 git merge --no-ff 的区别
 git merge 默认合并的方式是 Fast forward，这种模式下，删除分支后，会丢掉分支信息。
 git merge --no-ff 强制禁用Fash forward模式，git在merge（合并）时会生成一个新的commit,
-          这样，从分支历史上就可以看出分支信息。 
+          这样，从分支历史上就可以看出分支信息。
+
+ 
+如果采用 ff 模式的，则直接把 master 的指针直接指向了 dev 分支的最新提交，
+这样两个分支的最新提交的 commit id 就是一样的。
+
+
+如果采用 --no-ff 模式合并分支，由于不能直接把 master 指针直接指向 dev 分支的最新提交， 
+master 分支只能进行一次提交操作，导致内容一模一样，commit id 不同。
 
 -------------------------------------------------------------------------------------
 
