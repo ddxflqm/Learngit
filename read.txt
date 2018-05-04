@@ -101,6 +101,37 @@ bug 分支
 
 步骤6：puss 到远程库。
 
+------------------------------------------------------------------------------------
+
+git stash
+
+如果当前在dev分支开发功能，此时有bug产生，但工作只进行了一半，没办法提交dev，则需要
+使用 git stash 把当前场景储存起来，等以后恢复。
+
+步骤1： 在dev分支中开发内容,不进行git add, git commit,直接git stash,将当前的分支保存起来。
+	因为不提交，无法进行分支切换，当前的条件是不进行提交，用stash来进行保存后，再切换分支。
+	
+	git stash 之后 查看dev分支内容，dev的修改内容不见了，被保存到另一个地方。
+	git stash 之后可以切换到master分支。
+		
+	$ git stash
+	Saved working directory and index state WIP on dev_lxf: e1d9ce0 update master again
+
+步骤2：	在master分支上创建一个bug_001分支，进行修改并合并。
+
+步骤3：	切换到dev分支，查看内容，之前修改的内容看不到了，被git保存到了某个地方。
+ 	可以用git stash list 查看。
+	$ git stash list
+	stash@{0}: WIP on dev_lxf: e1d9ce0 update master again
+
+步骤4： git stash apply 恢复保存的内容 stash内容并不删除（用git stash list仍可以看到）
+	git stash drop  删除stash（用git stash list没有内容）
+	
+	git stash pop 恢复的同时把stash内容也删了,是上边两个命令的综合。
+
+
+
+
 
 -------------------------------------------------------------------------------------
 
