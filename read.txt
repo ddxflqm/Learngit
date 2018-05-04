@@ -62,8 +62,11 @@ git checkout master 切换到master分支。
 
 git merge dev 合并指定分支到当前分支。要合并的指定分支是dev，当前分支可以用git branch 查看带*号的分支。
 
-git branch -d dev  删除Dev分支。
 
+
+git branch -d dev  删除Dev分支（删除已合并过的分支）。
+
+git branch -D dev  强制删除分支，Dev没有合并就删除。
 
 git merge --no-ff -m "提交内容" dev  强制禁用Fash forward模式，git在merge（合并）时会生成一个新的commit,
           			     这样，从分支历史上就可以看出分支信息。
@@ -86,6 +89,24 @@ git stash apply 恢复现场，但是恢复后，stash内容并不删除,即用g
 git stash drop	删除存储现场，删除之后用git stash list查看不到stash
 
 git stash pop 	恢复的同时把stash也删了,相当于git stash apply和git stash drop一起操作。
+
+
+
+------------------------------------------------------------------------------------
+
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除
+
+feature 分支修改内容后， 不进行add和commit，直接删除git branch -d feature,是否成功？
+ 	删除失败，因为没有提交的时候，无法切换到marter分支，故无法删除。
+	
+	add commit之后进行删除，提示删除失败。（原因没有合并）
+	$ git branch -d feature
+	error: The branch 'feature' is not fully merged.
+	If you are sure you want to delete it, run 'git branch -D feature'.
+	
+	强制删除成功
+	$ git branch -D feature
+	Deleted branch feature (was 01f68e8).
 
 
 
