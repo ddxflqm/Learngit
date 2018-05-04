@@ -72,6 +72,23 @@ git log --pretty=oneline 简化日志信息，将每个提交放在一行显示�
 git log --graph --pretty=oneline --abbrev-commit 查看分支合并情况，包括分支合并图，一行显示，commitID缩略显示。
 
 
+------------------------------------------------------------------------------------
+bug 分支 
+步骤1： 在 dev_lxf上边修改，不git add,git commit,直接切换到master分支，查看内容。
+	报错 （提示在切换分支之前先提交更改或保存）：
+	$ git checkout master
+	error: Your local changes to the following files would be overwritten by checkout:
+        	read.txt
+	Please commit your changes or stash them before you switch branches.
+	Aborting
+
+步骤2：	在 dev_lxf上边修改，执行git add 不执行git commit,切换到master分支，查看内容。
+ 	报错，报错内容与步骤1一样。
+
+步骤3：	在 dev_lxf上边修改，执行git add 并执行git commit,切换到master分支，查看内容。
+ 	
+
+
 -------------------------------------------------------------------------------------
 分支策略
 比较 git merge 与 git merge --no-ff 的区别
