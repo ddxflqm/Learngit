@@ -65,11 +65,29 @@ git merge dev 合并指定分支到当前分支。要合并的指定分支是dev
 git branch -d dev  删除Dev分支。
 
 
+git merge --no-ff -m "提交内容" dev  强制禁用Fash forward模式，git在merge（合并）时会生成一个新的commit,
+          			     这样，从分支历史上就可以看出分支信息。
+
+
 git log --graph 显示分支合并图。
 
 git log --pretty=oneline 简化日志信息，将每个提交放在一行显示。
 
 git log --graph --pretty=oneline --abbrev-commit 查看分支合并情况，包括分支合并图，一行显示，commitID缩略显示。
+
+
+
+git stash 	把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
+
+git stash list  查看存储内容的保存现场
+
+git stash apply 恢复现场，但是恢复后，stash内容并不删除,即用git stash list仍能看到stash
+
+git stash drop	删除存储现场，删除之后用git stash list查看不到stash
+
+git stash pop 	恢复的同时把stash也删了,相当于git stash apply和git stash drop一起操作。
+
+
 
 ------------------------------------------------------------------------------------
 
