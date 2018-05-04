@@ -75,6 +75,7 @@ git log --graph --pretty=oneline --abbrev-commit 查看分支合并情况，包�
 ------------------------------------------------------------------------------------
 bug 分支 
 步骤1： 在 dev_lxf上边修改，不git add,git commit,直接切换到master分支，查看内容。
+	切换分支失败。
 	报错 （提示在切换分支之前先提交更改或保存）：
 	$ git checkout master
 	error: Your local changes to the following files would be overwritten by checkout:
@@ -83,9 +84,16 @@ bug 分支
 	Aborting
 
 步骤2：	在 dev_lxf上边修改，执行git add 不执行git commit,切换到master分支，查看内容。
- 	报错，报错内容与步骤1一样。
+ 	切换分支失败。
+	报错，报错内容与步骤1一样。
 
 步骤3：	在 dev_lxf上边修改，执行git add 并执行git commit,切换到master分支，查看内容。
+	切换分支成功。
+
+步骤4： 切换到Master分支之后，再创建一个bug分支，进行修复Bug，并合并到Master分支上。
+	合并成功之后，再切换到dev_lxf分支上，进行修改。
+
+步骤5：	在dev_lxf上边修改完之后，合并到Master。（会引起冲突吗？）
  	
 
 
