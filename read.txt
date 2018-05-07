@@ -99,10 +99,77 @@ git remote 	查看远程库信息。
 git remote -v	查看远程库详细信息，如果没有推送权限，则看不到push地址。
 
 
+------------------------------------------------------------------------------------
+push 到远程，分支名必须相同才能成功？ 不能成功。
 
------------------------------------------------------------------------------------
-push 到远程，分支名必须相同才能成功？
+多人协作
 
+小伙伴从远程库克隆（D盘）之后，只能看到Master分支。
+
+步骤1： 小伙伴的本地库（D盘）。如果要在dev上开发，就必须创建远程origin的dev到本地，使用命令 git checkout -b dev origin/dev
+	$ git checkout -b dev_Tim origin/dev_lxf
+	Switched to a new branch 'dev_Tim'
+	Branch 'dev_Tim' set up to track remote branch 'dev_lxf' from 'origin'.
+
+步骤2：	在分支dev_Tim中修改并提交，最后push 到远程分支dev_lxf
+	error: src refspec dev_lxf does not match any.
+	error: failed to push some refs to 'git@github.com:ddxflqm/Learngit.git'
+	
+	分支名称不同，导致push失败。
+	回退版本并删除该分支，重新创建dev_lxf分支，再次修改并提交，最后Push到 origin dev_lxf分支成功；
+
+步骤3：	回到自己本地库（E盘），创建dev_lxf分支，修改并提交，最后Push到 origin dev_lxf分支。
+	报错：
+	推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，
+	Git已经提示我们，
+	先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。
+
+	$ git push origin dev_lxf
+	To github.com:ddxflqm/Learngit.git
+	 ! [rejected]        dev_lxf -> dev_lxf (fetch first)
+	error: failed to push some refs to 'git@github.com:ddxflqm/Learngit.git'
+	hint: Updates were rejected because the remote contains work that you do
+	hint: not have locally. This is usually caused by another repository pushing
+	hint: to the same ref. You may want to first integrate the remote changes
+	hint: (e.g., 'git pull ...') before pushing again.
+	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+步骤4：	使用git pull 把最新的提交从origin/dev_lxf抓取下来。
+	报错：
+	git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，
+	根据提示，设置dev和origin/dev的链接
+	
+	$ git pull
+	remote: Counting objects: 3, done.
+	remote: Compressing objects: 100% (1/1), done.
+	remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+	Unpacking objects: 100% (3/3), done.
+	From github.com:ddxflqm/Learngit
+	   28f0228..82f89bf  dev_lxf    -> origin/dev_lxf
+	There is no tracking information for the current branch.
+	Please specify which branch you want to merge with.
+	See git-pull(1) for details.
+
+	    git pull <remote> <branch>
+
+	If you wish to set tracking information for this branch you can do so with:
+
+	    git branch --set-upstream-to=origin/<branch> dev_lxf
+
+步骤5：	根据步骤4的提示，设置本地dev_lxf与origin/dev_lxf链接。
+
+	$ git branch --set-upstream-to=origin/dev_lxf dev_lxf
+	Branch 'dev_lxf' set up to track remote branch 'dev_lxf' from 'origin'.
+
+步骤6： 再Pull，抓取origin/dev_lxf分支内容
+	提示：git pull成功，抓取的内容与本地内容冲突，需要手动解决冲突。
+	$ git pull
+	Auto-merging read.txt
+	CONFLICT (content): Merge conflict in read.txt
+	Automatic merge failed; fix conflicts and then commit the result.
+
+步骤7：	在本地解决冲突后，再次提交并Push。
+	
 
 ------------------------------------------------------------------------------------
 
