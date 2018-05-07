@@ -100,7 +100,18 @@ git remote -v	查看远程库详细信息，如果没有推送权限，则看不
 
 
 
+------------------------------------------------------------------------------------
 
+多人协作
+
+小伙伴从远程库克隆之后，只能看到Master分支。
+
+步骤1： 如果要在dev上开发，就必须创建远程origin的dev到本地，使用命令 git checkout -b dev origin/dev
+	$ git checkout -b dev_Tim origin/dev_lxf
+	Switched to a new branch 'dev_Tim'
+	Branch 'dev_Tim' set up to track remote branch 'dev_lxf' from 'origin'.
+
+步骤2：	在分支dev_Tim中修改并提交，最后push 到远程分支dev_lxf
 
 
 ------------------------------------------------------------------------------------
