@@ -99,6 +99,23 @@ git remote 	查看远程库信息。
 git remote -v	查看远程库详细信息，如果没有推送权限，则看不到push地址。
 
 
+git tag <name> 	默认标签打在最新的commit id 上，eg: git tag v2.0 。
+
+git tag	<name> <commit id>	给历史版本打标签，需找到历史commit id，然后打标签 git tag v1.0 39ffc12
+
+git tag -a v0.1 -m "version 0.1 released" 28f0328 	创建带有说明的标签，用-a指定标签名，-m指定说明文字
+
+git tag -s v0.2 -m "signed version 0.2 released" fec145a  	-s用私钥签名一个标签。没有实现过方法。
+								(签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错)
+
+git tag		查看标签,查看所有标签
+
+
+git show <tagname> 	查看标签信息，eg: git show v0.9
+
+ 
+
+
 ------------------------------------------------------------------------------------
 
 多人协作的工作模式通常是这样：
