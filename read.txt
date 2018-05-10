@@ -462,5 +462,20 @@ Lines starting with '#' will be ignored, and an empty message aborts the commit.
 2.输入冒号加wq   ":wq",  按回车键，意思就是就是忽略这个提示
 
 --------------------------------------------------------------------------------
+
+关联远程库报错：
+
+错误1： 关联远程库前提需要在GitHub上边创建一个远程仓库，否则会关联失败。
+
+错误2： $ git remote add origin git@github.com:ddxflqm/learnPy.git
+	fatal: remote origin already exists.
+	解决方案：
+	
+	$ git remote rm origin 删除关联
+
+	$ git remote add origin git@github.com:ddxflqm/learnPy.git 重新关联
+
+-----------------------------------------------------------------------------------
+
  
  
