@@ -120,7 +120,9 @@ git push origin <tagname>	推送一个本地标签；
 git push origin --tags		推送全部未推送过的本地标签；
 
 git push origin :refs/tags/<tagname>	删除一个远程标签。
-	
+
+
+rm -rf .git  目录取消Git仓库	
  
 
 
@@ -477,5 +479,17 @@ Lines starting with '#' will be ignored, and an empty message aborts the commit.
 
 -----------------------------------------------------------------------------------
 
- 
+rm -rf .git  目录取消Git仓库
+
+$ cd e:/work
+vn0umhp@WDWSPC093 MINGW64 /e/work (master)
+$ ls -ah
+./  ../  .git/  HTMLTestRunner/  HTTP/  py/  RF/  工作日志.xls
+vn0umhp@WDWSPC093 MINGW64 /e/work (master)
+$ rm -rf .git
+vn0umhp@WDWSPC093 MINGW64 /e/work
+$ ls -ah
+./  ../  HTMLTestRunner/  HTTP/  py/  RF/  工作日志.xls 
+
+------------------------------------------------------------------------------------
  
