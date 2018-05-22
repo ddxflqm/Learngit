@@ -123,7 +123,29 @@ git push origin :refs/tags/<tagname>	删除一个远程标签。
 
 
 rm -rf .git  目录取消Git仓库	
+
+
+git pull origin master --allow-unrelated-histories 	合并时报错fatal: refusing to merge unrelated histories
+							合并时存在两个不同的项目解决方案。
+
+
  
+------------------------------------------------------------------------------------
+
+【合并pull两个不同的项目，出现的问题如何去解决fatal: refusing to merge unrelated histories】
+$ git pull origin master
+From github.com:ddxflqm/RaiseSalary
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+$ git pull origin master --allow-unrelated-histories
+From github.com:ddxflqm/RaiseSalary
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
 
 
 ------------------------------------------------------------------------------------
